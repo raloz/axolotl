@@ -1,0 +1,16 @@
+{
+    "manifest_version": 3,
+    "name": "Axolotl",
+    "version": "1.0.0",
+    "description": "A chrome extension for cool NetSuite stuffs",
+    "icons": {
+      "16": "icons/axolotl16.png",
+      "32": "icons/axolotl32.png",
+      "64": "icons/axolotl64.png",
+      "128": "icons/axolotl128.png",
+      "256": "icons/axolotl256.png"
+    },
+    "action": {
+      "default_popup": "index.html"
+    }
+  }

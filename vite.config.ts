@@ -7,11 +7,12 @@ import react from "@vitejs/plugin-react-swc";
 export default defineConfig({
   plugins: [react()],
   test: {
-    include: ["./src/__test__/**/*.{js,ts,jsx,tsx}"],
+    include: ["./__test__/**/*.{js,ts,jsx,tsx}"],
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src')
+      '@app': path.resolve(__dirname, './src'),
+      '@test': path.resolve(__dirname, './__test__')
     },
   },
 });

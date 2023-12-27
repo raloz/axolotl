@@ -20,11 +20,14 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "paths": {
-      "@/lib/*": ["lib/*"],
+      "@app/*":["./src/*"],
+      "@test/*":["./__test__/*"],
+      "@app/lib": ["./src/lib/"],
+      "@test/templates/*":["./__test__/templates"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "__test__"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

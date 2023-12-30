@@ -1,0 +1,61 @@
+name: axolotl-pipeline
+on: 
+  pull-request:
+    type: [opened, synchronize]
+    branches:
+      - main
+
+jobs:
+  setting-up:
+    runs-on: ubuntu-latest
+    steps:
+      - name: pulling repository 
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      
+      - name: setting up the environment
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.10'
+          cache: 'npm' 
+      - run: npm ci
+
+  lint:
+    needs: 'setting-up'
+    runs-up: ubuntu-latest
+    steps:
+      - name: pulling repository
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      
+      - name: setting up the environment
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.10'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm lint
+  
+  test:
+    needs: 'setting-up'
+    runs-up: ubuntu-latest
+    steps:
+      - name: pulling repository
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      
+      - name: setting up the environment
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.10'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm test
+
+        
+
+
+      

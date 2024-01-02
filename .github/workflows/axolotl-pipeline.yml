@@ -1,20 +1,17 @@
 name: axolotl-pipeline
 on: 
-  pull-request:
-    type: [opened, synchronize]
-    branches:
-      - main
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize]
 
 jobs:
   setting-up:
     runs-on: ubuntu-latest
     steps:
-      - name: pulling repository 
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
       
-      - name: setting up the environment
       - uses: actions/setup-node@v4
         with:
           node-version: '20.10'
@@ -23,14 +20,12 @@ jobs:
 
   lint:
     needs: 'setting-up'
-    runs-up: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
-      - name: pulling repository
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
       
-      - name: setting up the environment
       - uses: actions/setup-node@v4
         with:
           node-version: '20.10'
@@ -40,14 +35,12 @@ jobs:
   
   test:
     needs: 'setting-up'
-    runs-up: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
-      - name: pulling repository
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
       
-      - name: setting up the environment
       - uses: actions/setup-node@v4
         with:
           node-version: '20.10'
